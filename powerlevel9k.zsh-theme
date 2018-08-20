@@ -1616,7 +1616,7 @@ set_default POWERLEVEL9K_VI_COMMAND_MODE_STRING "NORMAL"
 prompt_vi_mode() {
   case ${KEYMAP} in
     vicmd)
-      "$1_prompt_segment" "$0_NORMAL" "$2" "$DEFAULT_COLOR" "default" "$POWERLEVEL9K_VI_COMMAND_MODE_STRING"
+      "$1_prompt_segment" "$0_NORMAL" "$2" "$DEFAULT_COLOR" "red" "$POWERLEVEL9K_VI_COMMAND_MODE_STRING"
     ;;
     main|viins|*)
       if [[ -z $POWERLEVEL9K_VI_INSERT_MODE_STRING ]]; then return; fi
@@ -1824,8 +1824,8 @@ $(print_icon 'MULTILINE_LAST_PROMPT_PREFIX')'
       # advise it to go one line down. See:
       # http://superuser.com/questions/357107/zsh-right-justify-in-ps1
       local LC_ALL="" LC_CTYPE="en_US.UTF-8" # Set the right locale to protect special characters
-      RPROMPT_PREFIX='%{'$'\e[1A''%}' # one line up
-      RPROMPT_SUFFIX='%{'$'\e[1B''%}' # one line down
+      RPROMPT_PREFIX='%{'$'\e[1A''%}%{'$'\e[1A''%}' # one line up
+      RPROMPT_SUFFIX='%{'$'\e[1B''%}%{'$'\e[1B''%}' # one line down
     else
       RPROMPT_PREFIX=''
       RPROMPT_SUFFIX=''

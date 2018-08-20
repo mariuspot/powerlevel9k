@@ -50,7 +50,7 @@ function getColor() {
 
 # empty paramenter resets (stops) background color
 function backgroundColor() {
-  if [[ -z $1 ]]; then
+  if [[ -z $1 || $1 == "NONE" ]]; then
     echo -n "%k"
   else
     echo -n "%K{$(getColor $1)}"
@@ -59,7 +59,7 @@ function backgroundColor() {
 
 # empty paramenter resets (stops) foreground color
 function foregroundColor() {
-  if [[ -z $1 ]]; then
+  if [[ -z $1 || $1 == "NONE" ]]; then  
     echo -n "%f"
   else
     echo -n "%F{$(getColor $1)}"
